@@ -24,7 +24,7 @@ class Match_Connections {
 					'type' => 'text'
 				)
 			)
-	  ) );
+		) );
 	}
 }
 
