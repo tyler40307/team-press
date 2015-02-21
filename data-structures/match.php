@@ -52,11 +52,19 @@ class Match_Post_Type{
 		add_metadata_group('result' , 'Result', array(
 			'capability' => 'edit_posts'
 		));
-		add_metadata_field( 'result', 'home-team-score', 'Home Team Score', 'numberic', array(
- 			'description' => 'This is a the home team score.'
+		add_metadata_field( 'result', 'home-team-score', 'Home Team Score', 'text', array(
+ 			'default_value' => '0',
+ 			'sanitize_callbacks' => array( function( $field, $old, $new, $post_id ){
+ 				$new = ereg_replace("[^0-9]", "", $new);
+				return $new;
+			} )
 		));
-		add_metadata_field( 'result', 'away-team-score', 'Away Team Score', 'numberic', array(
- 			'description' => 'This is a the away team score.'
+		add_metadata_field( 'result', 'away-team-score', 'Away Team Score', 'text', array(
+ 			'default_value' => '0',
+ 			'sanitize_callbacks' => array( function( $field, $old, $new, $post_id ){
+ 				$new = ereg_replace("[^0-9]", "", $new);
+				return $new;
+			} )
 		));
 		add_metadata_group( 'match-up', 'Match', array(
 			'capability' => 'edit_posts'

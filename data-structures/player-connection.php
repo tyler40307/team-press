@@ -1,6 +1,6 @@
 <?php
 
-class Match_Team_Connections {
+class Team_Player_Connections {
 
 	public static function init() {
 	if ( !function_exists('_p2p_init') )
@@ -11,16 +11,16 @@ class Match_Team_Connections {
 
 	public static function register_connections() {
 		p2p_register_connection_type( array(
-			'name' => 'teams_to_matches',
-			'from' => 'team',
-			'to' => 'match',
+			'name' => 'player_to_teams',
+			'from' => 'player',
+			'to' => 'team',
 			'admin_box' => array(
 				'show' => 'any',
 				'context' => 'side'
 			),
 			'fields' => array(
-				'sides' => array(
-					'title' => 'Home/Away',
+				'count' => array(
+					'title' => 'Position',
 					'type' => 'text'
 				)
 			)
@@ -28,4 +28,4 @@ class Match_Team_Connections {
 	}
 }
 
-add_action( 'init', array( 'Match_Team_Connections', 'init' ) );
+add_action( 'init', array( 'Team_Player_Connections', 'init' ) );
