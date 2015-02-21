@@ -52,7 +52,7 @@ class Match_Post_Type{
 		add_metadata_group('result' , 'Result', array(
 			'capability' => 'edit_posts'
 		));
-		add_metadata_field( 'result', 'home-team-score', 'Home Team Score', 'text', array(
+		add_metadata_field( 'result', 'home-team-score', 'Home Team Score', 'numberic', array(
  			'description' => 'This is a the home team score.'
 		));
 		add_metadata_field( 'result', 'away-team-score', 'Away Team Score', 'text', array(

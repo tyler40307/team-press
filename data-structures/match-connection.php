@@ -11,10 +11,10 @@ class Match_Connections {
 
 	public static function register_connections() {
 		p2p_register_connection_type( array(
-		  'name' => 'teams_to_matches',
-		  'from' => 'team',
-		  'to' => 'match',
-		  'admin_box' => array(
+			'name' => 'teams_to_matches',
+			'from' => 'team',
+			'to' => 'match',
+			'admin_box' => array(
 				'show' => 'any',
 				'context' => 'side'
 			),
