@@ -1,0 +1,226 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "8cbb90ca5758b1ef67685af21141bdf9",
+    "packages": [
+        {
+            "name": "composer/installers",
+            "version": "v1.0.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
+                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
+                "shasum": ""
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "composer-installer",
+            "extra": {
+                "class": "Composer\\Installers\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Composer\\Installers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "http://composer.github.com/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Hurad",
+                "MODX Evo",
+                "OXID",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "elgg",
+                "fuelphp",
+                "grav",
+                "installer",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lithium",
+                "magento",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "moodle",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "zend",
+                "zikula"
+            ],
+            "time": "2015-02-18 17:17:01"
+        },
+        {
+            "name": "voceconnect/voce-post-meta",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/voceconnect/voce-post-meta.git",
+                "reference": "8864457569305a586cd30e3a6c9a65582cd50644"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/voceconnect/voce-post-meta/zipball/8864457569305a586cd30e3a6c9a65582cd50644",
+                "reference": "8864457569305a586cd30e3a6c9a65582cd50644",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "voce-post-meta.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv2+"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Langley Jr",
+                    "email": "klangley@voceconnect.com"
+                },
+                {
+                    "name": "Jeff Stieler",
+                    "email": "jeff@voceconnect.com"
+                },
+                {
+                    "name": "Mark Parolisi",
+                    "email": "mark@voceconnect.com"
+                },
+                {
+                    "name": "Gary Smirny",
+                    "email": "gary@voceconnect.com"
+                },
+                {
+                    "name": "Michael Pretty",
+                    "email": "mpretty@voceconnect.com"
+                }
+            ],
+            "description": "Easily create post metaboxes and add fields",
+            "keywords": [
+                "post meta",
+                "wordpress"
+            ],
+            "time": "2014-10-01 17:09:44"
+        },
+        {
+            "name": "voceconnect/voce-settings-api",
+            "version": "0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/voceconnect/voce-settings-api.git",
+                "reference": "8dba84c4ea99878c2a726e7f30a2efbf277c9d19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/voceconnect/voce-settings-api/zipball/8dba84c4ea99878c2a726e7f30a2efbf277c9d19",
+                "reference": "8dba84c4ea99878c2a726e7f30a2efbf277c9d19",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "voce-settings-api.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv2+"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Pretty",
+                    "email": "mpretty@voceconnect.com"
+                }
+            ],
+            "description": "A simplification of the core WordPress settings API",
+            "time": "2014-11-10 18:26:55"
+        },
+        {
+            "name": "wpackagist-plugin/posts-to-posts",
+            "version": "1.6.3",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/posts-to-posts/",
+                "reference": "tags/1.6.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/posts-to-posts.1.6.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/posts-to-posts/"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ],
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}
