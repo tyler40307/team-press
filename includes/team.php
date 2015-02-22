@@ -5,7 +5,7 @@ class Team_Post_Type{
 	public static function init(){
 		self::register_post_type();
 		self::register_meta();
-
+		add_filter( 'template_include', array( __CLASS__, 'template_include' ) );
 	}
 
 	public static function register_post_type(){
@@ -21,7 +21,7 @@ class Team_Post_Type{
 			'not_found'           => __( 'No Teams found', 'text-domain' ),
 			'not_found_in_trash'  => __( 'No Teams found in Trash', 'text-domain' ),
 			'parent_item_colon'   => __( 'Parent Team:', 'text-domain' ),
-			'menu_name'           => __( 'Teams', 'text-domain' ),
+			'menu_name'           => __( 'Teams', 'text-domain' )
 		);
 		$args = array(
 			'labels'              => $labels,
@@ -40,22 +40,31 @@ class Team_Post_Type{
 			'has_archive'         => true,
 			'query_var'           => 'teams',
 			'can_export'          => true,
-			'rewrite'             => true,
+			'rewrite'             => 'team',
 			'capability_type'     => 'post',
 			'supports'            => array(
 				'title', 'editor', 'thumbnail',
-				'excerpt', 'revisions','team-members', 'admin-box')
+				'excerpt', 'revisions', 'position')
 		);
 		register_post_type( self::POST_TYPE, $args );
 	}
 	public static function register_meta(){
-		add_metadata_group( 'team-members', 'Team Members', array(
+		add_metadata_group( 'position', 'Position', array(
 			'capability' => 'edit_posts'
 		));
-		add_metadata_field( 'team-memebers', 'team-member', 'Member', 'text', array(
- 			'description' => 'This is a team member.'
+		add_metadata_field( 'position', 'position', 'Positon', 'text', array(
+ 			'description' => 'The Players Position.'
 		));
-		add_post_type_support( 'team', 'team_member' );
+		add_post_type_support( 'player', 'position' );
+	}
+	public static function template_include($template){
+		$path = ABSPATH . 'wp-content/plugins/team-press';
+		if( is_singular(Match_Post_Type::POST_TYPE ) )
+			$template = apply_filters( 'single_team', $path . '/templates/single-team.php' );
+		elseif( is_archive(Match_Post_Type::POST_TYPE ) )
+			$template = apply_filters( 'archive_team', $path . '/templates/archive-team.php' );
+
+		return $template;
 	}
 }
 add_action( 'init', array( 'Team_Post_Type' , 'init') ) ;

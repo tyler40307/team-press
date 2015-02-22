@@ -4,23 +4,22 @@ Plugin Name: teampress
 Author:Tyler Cherpak
 Description: A Plugin for Rec League Basketball.
  */
-if(file_exists( __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php' ) )
-	include_once( __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php' );
+if(file_exists( __DIR__ . '/vendor/autoload.php' ) )
+	include_once( __DIR__ . '/vendor/autoload.php' );
+
 do_action( 'wp_load_dependency', 'posts-to-posts' );
+
 if( !class_exists('Player_Post_Type') )
-	require_once( __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR .'player.php' );
+	require_once( __DIR__ . '/includes/player.php' );
 
 if( !class_exists('Team_Post_Type') )
-	require_once( __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR .'team.php' );
+	require_once( __DIR__ . '/includes/team.php' );
 
 if( !class_exists('Match_Post_Type') )
-	require_once( __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR .'match.php' );
+	require_once( __DIR__ . '/includes/match.php' );
 
 if( !class_exists('League_Post_Type') )
-	require_once( __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR .'league.php' );
+	require_once( __DIR__ . '/includes/league.php' );
 
 if( !class_exists('Match_Team_Connection') )
-	require_once( __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR .'match-connection.php' );
-
-if( !class_exists('Team_Player_Connection') )
-	require_once( __DIR__ . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR .'player-connection.php' );
+	require_once( __DIR__ . '/includes/connections.php' );

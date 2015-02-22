@@ -5,7 +5,7 @@ class Match_Post_Type{
 	public static function init(){
 		self::register_post_type();
 		self::register_meta();
-
+		add_filter( 'template_include', array( __CLASS__, 'template_include' ) );
 	}
 
 	public static function register_post_type(){
@@ -48,6 +48,7 @@ class Match_Post_Type{
 		);
 		register_post_type( self::POST_TYPE, $args );
 	}
+
 	public static function register_meta(){
 		add_metadata_group('result' , 'Result', array(
 			'capability' => 'edit_posts'
@@ -78,5 +79,18 @@ class Match_Post_Type{
 		add_post_type_support( 'match', 'match-up' );
 		add_post_type_support( 'match', 'result' );
 	}
+
+	public static function template_include($template){
+		$path = ABSPATH . 'wp-content/plugins/team-press';
+		if( is_singular(Match_Post_Type::POST_TYPE) ){
+			$template = apply_filters( 'single_match', $path . '/templates/single-match.php' );
+		} else {
+			if(is_archive(Match_Post_Type::POST_TYPE)){
+				$template = apply_filters( 'archive_match', $path . '/templates/archive-match.php' );
+			}
+		}
+		return $template;
+	}
 }
+
 add_action( 'init', array( 'Match_Post_Type' , 'init') ) ;
