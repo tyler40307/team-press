@@ -40,7 +40,7 @@ class Team_Post_Type{
 			'has_archive'         => true,
 			'query_var'           => 'teams',
 			'can_export'          => true,
-			'rewrite'             => 'team',
+			'rewrite'             => array( 'slug' => 'team' ),
 			'capability_type'     => 'post',
 			'supports'            => array(
 				'title', 'editor', 'thumbnail',
