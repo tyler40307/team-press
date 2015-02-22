@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "6e13de3d6e2b787c19ea6c832ae1064a",
+    "hash": "8b3fefb385d27e49c299f612f81dfc06",
     "packages": [
         {
             "name": "composer/installers",
@@ -185,6 +185,45 @@
             ],
             "description": "A simplification of the core WordPress settings API",
             "time": "2014-11-10 18:26:55"
+        },
+        {
+            "name": "voceconnect/wp-dependencies",
+            "version": "v0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/voceconnect/wp-dependencies.git",
+                "reference": "33c3cfc48be261275222c6c3e3866e325220d56d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/voceconnect/wp-dependencies/zipball/33c3cfc48be261275222c6c3e3866e325220d56d",
+                "reference": "33c3cfc48be261275222c6c3e3866e325220d56d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class-wp-dependency-loader.php"
+                ],
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Pretty",
+                    "email": "mpretty@voceconnect.com"
+                }
+            ],
+            "description": "A composer package for WordPress to help manage plugin dependencies.",
+            "time": "2014-04-25 13:01:40"
         },
         {
             "name": "wpackagist-plugin/posts-to-posts",

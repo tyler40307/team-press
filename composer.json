@@ -21,7 +21,8 @@
     "require": {
         "voceconnect/voce-post-meta": "~1.4",
         "wpackagist-plugin/posts-to-posts": "~1.6.3",
-        "voceconnect/voce-settings-api": "~0.4"
+        "voceconnect/voce-settings-api": "~0.4",
+        "voceconnect/wp-dependencies": "~0.1"
     },
     "autoload": {
         "files": ["team-press.php"]
