@@ -2,7 +2,7 @@
 /*
 Plugin Name: teampress
 Author:Tyler Cherpak
-Description: A Plugin for Rec Leagues.
+Description: A Plugin for Rec League Basketball.
  */
 if(file_exists( __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php' ) )
 	include_once( __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php' );
