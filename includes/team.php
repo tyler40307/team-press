@@ -55,7 +55,7 @@ class Team_Post_Type{
 		add_metadata_field( 'position', 'position', 'Positon', 'text', array(
  			'description' => 'The Players Position.'
 		));
-		add_post_type_support( 'player', 'position' );
+		add_post_type_support( 'position', 'position' );
 	}
 	public static function template_include($template){
 		$path = ABSPATH . 'wp-content/plugins/team-press';

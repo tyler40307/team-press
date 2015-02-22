@@ -28,9 +28,9 @@ get_header(); ?>
 			  'connected_type' => 'match-to_team',
 			  'connected_items' => get_queried_object(),
 			  'nopaging' => true,
-			) );
-			// Display connected pages
-			if ( $connected->have_posts() ) :
+		) );
+		// Display connected pages
+		if ( $connected->have_posts() ) :
 			?>
 			<h3>Related pages:</h3>
 			<ul>
@@ -42,7 +42,7 @@ get_header(); ?>
 			<?php
 			wp_reset_postdata();
 
-			endif;
+		endif;
 		?>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->

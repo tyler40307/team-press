@@ -18,8 +18,5 @@ if( !class_exists('Team_Post_Type') )
 if( !class_exists('Match_Post_Type') )
 	require_once( __DIR__ . '/includes/match.php' );
 
-if( !class_exists('League_Post_Type') )
-	require_once( __DIR__ . '/includes/league.php' );
-
 if( !class_exists('Match_Team_Connection') )
 	require_once( __DIR__ . '/includes/connections.php' );
