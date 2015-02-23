@@ -12,8 +12,8 @@ class Match_Team_Connections {
 	public static function register_connections() {
 		p2p_register_connection_type( array(
 			'name' => 'match_to_team',
-			'from' => 'match',
-			'to' => 'team',
+			'from' => 'team',
+			'to' => 'match',
 			'admin_box' => array(
 				'show' => 'any',
 				'context' => 'side'

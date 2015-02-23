@@ -4,8 +4,6 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-		<h1>is this working?</h1>
-
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
@@ -21,7 +19,6 @@ get_header(); ?>
 					'<span class="screen-reader-text">' . __( 'Previous post:', 'twentyfifteen' ) . '</span> ' .
 					'<span class="post-title">%title</span>',
 			) );
-
 		// End the loop.
 		endwhile;
 		$connected = new WP_Query( array(
