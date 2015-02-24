@@ -66,7 +66,7 @@ class Match_Post_Type{
 	}
 
 	public static function template_include($template){
-		$path = __DIR__ . 'wp-content/plugins/team-press';
+		$path = __DIR__;
 		if( is_singular(Match_Post_Type::POST_TYPE) ){
 			$template = apply_filters( 'single_match', $path . '/templates/single-match.php' );
 		} else {
