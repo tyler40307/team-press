@@ -60,7 +60,7 @@ class Team_Post_Type{
 	}
 
 	public static function template_include($template){
-		$path = __DIR__ . 'wp-content/plugins/team-press';
+		$path = __DIR__;
 		if( is_singular(Team_Post_Type::POST_TYPE ) )
 			$template = apply_filters( 'single_team', $path . '/templates/single-team.php' );
 		elseif( is_archive(Team_Post_Type::POST_TYPE ) )
