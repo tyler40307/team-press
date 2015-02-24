@@ -1,7 +1,4 @@
 <?php
-/**
-*
-*/
 class League_Setting{
 
 	public static function init(){
