@@ -48,6 +48,7 @@ class Team_Post_Type{
 		);
 		register_post_type( self::POST_TYPE, $args );
 	}
+
 	public static function register_meta(){
 		add_metadata_group( 'position', 'Position', array(
 			'capability' => 'edit_posts'
@@ -57,6 +58,7 @@ class Team_Post_Type{
 		));
 		add_post_type_support( 'position', 'position' );
 	}
+
 	public static function template_include($template){
 		$path = ABSPATH . 'wp-content/plugins/team-press';
 		if( is_singular(Match_Post_Type::POST_TYPE ) )
@@ -67,4 +69,5 @@ class Team_Post_Type{
 		return $template;
 	}
 }
+
 add_action( 'init', array( 'Team_Post_Type' , 'init') ) ;

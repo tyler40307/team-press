@@ -1,5 +1,6 @@
 <?php
 class Match_Post_Type{
+
 	const POST_TYPE = 'match';
 
 	public static function init(){
@@ -67,16 +68,6 @@ class Match_Post_Type{
 				return $new;
 			} )
 		));
-		add_metadata_group( 'match-up', 'Match', array(
-			'capability' => 'edit_posts'
-		));
-		add_metadata_field( 'match-up', 'home-team', 'Home Team', 'text', array(
- 			'description' => 'This is a the home team.'
-		));
-		add_metadata_field( 'match-up', 'away-team', 'Away Team', 'text', array(
- 			'description' => 'This is a the away team.'
-		));
-		add_post_type_support( 'match', 'match-up' );
 		add_post_type_support( 'match', 'result' );
 	}
 
@@ -90,6 +81,16 @@ class Match_Post_Type{
 			}
 		}
 		return $template;
+	}
+
+	public static function display_home_score(){
+		$home_team_score = Voce_Meta_API::GetInstance()->get_meta_value( get_the_id(), 'result', 'home-team-score' );
+		return $home_team_score;
+	}
+
+	public static function display_away_score(){
+		$away_team_score = Voce_Meta_API::GetInstance()->get_meta_value( get_the_id(), 'result', 'away-team-score' );
+		return $away_team_score;
 	}
 }
 
