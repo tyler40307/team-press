@@ -25,5 +25,7 @@ class League_Setting{
 		}
 	}
 }
+
 add_action( 'init', array( 'League_Setting' , 'init') ) ;
+
 add_action( 'wp_enqueue_scripts', array('League_Setting', 'league_style_setting') );

@@ -6,41 +6,37 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 		<?php
 		// Start the loop.
-		while ( have_posts() ) : the_post();
+		while ( have_posts() ) : the_post();?>
+			<div class="container-fluid page-content">
+				<h1><?php the_title(); ?></h1>
 
-			get_template_part( 'content', get_post_format() );
-
-			// Previous/next match navigation.
-			the_post_navigation( array(
-				'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'twentyfifteen' ) . '</span> ' .
-					'<span class="screen-reader-text">' . __( 'Next post:', 'twentyfifteen' ) . '</span> ' .
-					'<span class="post-title">%title</span>',
-				'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'twentyfifteen' ) . '</span> ' .
-					'<span class="screen-reader-text">' . __( 'Previous post:', 'twentyfifteen' ) . '</span> ' .
-					'<span class="post-title">%title</span>',
-			) );
+		<?php
 		// End the loop.
 		endwhile;
 		$connected = new WP_Query( array(
-			  'connected_type' => 'match-to_team',
-			  'connected_items' => get_queried_object(),
-			  'nopaging' => true,
+			  'connected_type' => 'match_to_team',
+			  'connected_items' => $post,
+			  'nopaging' => true
 		) );
 		// Display connected pages
 		if ( $connected->have_posts() ) :
 			?>
-			<h3>Related pages:</h3>
-			<ul>
-			<?php while ( $connected->have_posts() ) : $connected->the_post(); ?>
-			    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-			<?php endwhile; ?>
-			</ul>
+			<h3>Matches:</h3>
+			<div class="row">
+				<?php
+				while($connected -> have_posts()) : $connected->the_post();?>
+					<div class="col-md-6" id="team-<?php echo p2p_get_meta( get_post()->p2p_id, 'sides', true ); ?>">
+						<?php echo p2p_get_meta( get_post()->p2p_id, 'sides', true ) . ' Team'; ?> : <?php the_title();?>
+					</div>
+				<?php endwhile; ?>
+			</div>
 
 			<?php
 			wp_reset_postdata();
 
 		endif;
 		?>
+		</div>
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 

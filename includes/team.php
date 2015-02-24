@@ -61,9 +61,9 @@ class Team_Post_Type{
 
 	public static function template_include($template){
 		$path = ABSPATH . 'wp-content/plugins/team-press';
-		if( is_singular(Match_Post_Type::POST_TYPE ) )
+		if( is_singular(Team_Post_Type::POST_TYPE ) )
 			$template = apply_filters( 'single_team', $path . '/templates/single-team.php' );
-		elseif( is_archive(Match_Post_Type::POST_TYPE ) )
+		elseif( is_archive(Team_Post_Type::POST_TYPE ) )
 			$template = apply_filters( 'archive_team', $path . '/templates/archive-team.php' );
 
 		return $template;

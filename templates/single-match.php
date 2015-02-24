@@ -9,8 +9,7 @@ get_header(); ?>
 			$connected = new WP_Query( array(
         		'connected_type' => 'match_to_team',
         		'connected_items' => $post,
-        		'nopaging' => true,
-        		'connected-meta' => array()
+        		'nopaging' => true
     		) );
 			?>
 			<div class="container-fluid page-content">

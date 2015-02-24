@@ -3,11 +3,10 @@
 class Match_Team_Connections {
 
 	public static function init() {
-	if ( !function_exists('_p2p_init') )
-		return _doing_it_wrong( __CLASS__, 'Posts to Posts plugin is required to register connections.', null );
-
-		add_action( 'p2p_init',  array( __CLASS__, 'register_connections') );
-	}
+		if ( !function_exists('_p2p_init') )
+			return _doing_it_wrong( __CLASS__, 'Posts to Posts plugin is required to register connections.', null );
+			add_action( 'p2p_init',  array( __CLASS__, 'register_connections') );
+		}
 
 	public static function register_connections() {
 		p2p_register_connection_type( array(
@@ -34,11 +33,10 @@ add_action( 'init', array( 'Match_Team_Connections', 'init' ) );
 class Team_Player_Connections {
 
 	public static function init() {
-	if ( !function_exists('_p2p_init') )
-		return _doing_it_wrong( __CLASS__, 'Posts to Posts plugin is required to register connections.', null );
-
-		add_action( 'p2p_init',  array( __CLASS__, 'register_connections') );
-	}
+		if ( !function_exists('_p2p_init') )
+			return _doing_it_wrong( __CLASS__, 'Posts to Posts plugin is required to register connections.', null );
+			add_action( 'p2p_init',  array( __CLASS__, 'register_connections') );
+		}
 
 	public static function register_connections() {
 		p2p_register_connection_type( array(
