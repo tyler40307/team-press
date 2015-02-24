@@ -3,6 +3,7 @@ class League_Setting{
 
 	public static function init(){
 		self::add_style_setting();
+		add_action( 'wp_enqueue_scripts', array('__CLASS__' , 'league_style_setting') );
 	}
 
 	public static function league_style_setting(){
@@ -27,5 +28,3 @@ class League_Setting{
 }
 
 add_action( 'init', array( 'League_Setting' , 'init') ) ;
-
-add_action( 'wp_enqueue_scripts', array('__CLASS__' , 'league_style_setting') );
