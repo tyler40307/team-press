@@ -56,10 +56,7 @@ class Match_Post_Type{
 		));
 		add_metadata_field( 'result', 'home-team-score', 'Home Team Score', 'text', array(
  			'default_value' => '0',
- 			'sanitize_callbacks' => array( function( $field, $old, $new, $post_id ){
- 				$new = ereg_replace("[^0-9]", "", $new);
-				return $new;
-			} )
+ 			'sanitize_callbacks' => array( 'voce_numeric_value' )
 		));
 		add_metadata_field( 'result', 'away-team-score', 'Away Team Score', 'text', array(
  			'default_value' => '0',
