@@ -20,3 +20,6 @@ if( !class_exists('Match_Post_Type') )
 
 if( !class_exists('Match_Team_Connection') )
 	require_once( __DIR__ . '/includes/connections.php' );
+
+if( !class_exists('League_Setting') )
+	require_once( __DIR__ . '/includes/league-setting.php' );
