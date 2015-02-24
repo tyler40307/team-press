@@ -20,7 +20,7 @@ class League_Setting{
 
 	public static function is_league_style_set(){
 		if( Voce_Settings_API::GetInstance()->get_setting('toggle_styles', 'league-settings' )){
-			wp_register_style( 'bootstrap', plugins_url( 'css/bootstrap.css' ) , __FILE__ );
+			wp_register_style( 'bootstrap', plugins_url( 'css/bootstrap.css' ) , __FILE__ ) );
 			wp_enqueue_style( 'bootstrap' );
 		}
 	}
