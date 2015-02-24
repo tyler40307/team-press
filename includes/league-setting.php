@@ -14,7 +14,7 @@ class League_Setting{
 			->add_group( 'Team-Press Settings', 'league-settings' )
 				->add_setting( 'Toggle League Styles', 'toggle_styles', array(
 					'display_callback' => 'vs_display_checkbox',
-					'sanitize_callbacks' => 'vs_sanitze_checkbox'
+					'sanitize_callbacks' => array( 'vs_sanitze_checkbox' )
 				) );
 	}
 
@@ -28,4 +28,4 @@ class League_Setting{
 
 add_action( 'init', array( 'League_Setting' , 'init') ) ;
 
-add_action( 'wp_enqueue_scripts', array('League_Setting', 'league_style_setting') );
+add_action( 'wp_enqueue_scripts', array('__CLASS__' , 'league_style_setting') );
