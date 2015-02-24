@@ -15,7 +15,7 @@ class League_Setting{
 			->add_group( 'Team-Press Settings', 'league-settings' )
 				->add_setting( 'Toggle League Styles', 'toggle_styles', array(
 					'display_callback' => 'vs_display_checkbox',
-					'sanitize_callbacks' => array( 'vs_sanitze_checkbox' )
+					'sanitize_callbacks' => array( 'vs_sanitize_checkbox' )
 				) );
 	}
 
