@@ -22,12 +22,10 @@ get_header(); ?>
 					</div>
 				<?php endwhile; ?>
 				</div>
-				<div class="row">
 				<h2>score:</h2>
-				</div>
 				<div class="row">
 					<div id="team-home" class="col-md-6"><?php printf('Home Score: ' . $home_score) ?></div>
-					<div id="team-away" class="col-md-6"><?php print('Away Score: ' .$away_score) ?></div>
+					<div id="team-away" class="col-md-6"><?php printf('Away Score: ' .$away_score) ?></div>
 				</div>
 			</div>
 		<?php endwhile;?>
