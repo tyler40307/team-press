@@ -77,48 +77,61 @@ class Match_Post_Type{
 		return $template;
 	}
 
-	public static function display_score( $id ){
-		echo ''	?><h2>score:</h2>
-			<div class="row">
-				<div id="team-home" class="col-md-6"><?php echo 'Home Score: ' . Voce_Meta_API::GetInstance()->get_meta_value( $id, 'result', 'home-team-score' ); ?></div>
-				<div id="team-away" class="col-md-6"><?php echo 'Away Score: ' . Voce_Meta_API::GetInstance()->get_meta_value( $id, 'result', 'away-team-score' ); ?></div>
-			</div><?php
-	}
-
-
 	public static function display_the_match(){
+
 		$args = array( 'post_type' => 'match', 'posts_per_page' => 1, 'meta_query' => 'home_team_score' );
 		$match_posts = new WP_Query( $args );
-		$connected_args = array(
-			'connected_type' => 'match_to_team' ,
-			'connected_items' => get_queried_object() ,
-			'connected_meta' => array('key' => 'sides'),
-			'nopaging' => true
-			);
-		$connected = new WP_Query( $connected_args );
 		echo '' ?>
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 				<div class="container-fluid page-content">
-				<?php while( $match_posts -> have_posts()) : $match_posts->the_post() ?>
-					<?php $id = post_id(); ?>
-					<h1>this is the title: <?php the_title(); ?></h1>
-					<h2>score:</h2>
-					<div class="row">
-						<div id="team-home" class="col-md-6"><?php echo 'Home Score: ' . Voce_Meta_API::GetInstance()->get_meta_value( $id, 'result', 'home-team-score' ); ?></div>
-						<div id="team-away" class="col-md-6"><?php echo 'Away Score: ' . Voce_Meta_API::GetInstance()->get_meta_value( $id, 'result', 'away-team-score' ); ?></div>
-					</div>
-					<?php endwhile; ?>
-					<div class="row">
-					<?php
-					while($connected -> have_posts()) : $connected->the_post();?>
-						<div class="col-md-6" id="team-<?php echo p2p_get_meta( get_post()->p2p_id, 'sides', true ); ?>">
-							<?php
-							the_title();
-							echo p2p_get_meta( get_post()->p2p_id, 'sides', true ) . ' Team' ?> : <?php the_title();?>
+				<?php
+				if( $match_posts->have_posts() ) :
+					while( $match_posts -> have_posts()) : $match_posts->the_post() ?>
+						<h1>this is the title: <?php the_title(); ?></h1>
+						<h2>score:</h2>
+						<div class="row">
+							<div id="team-home" class="col-md-6"><?php echo 'Home Score: ' . Voce_Meta_API::GetInstance()->get_meta_value( get_the_ID(), 'result', 'home-team-score' ); ?></div>
+							<div id="team-away" class="col-md-6"><?php echo 'Away Score: ' . Voce_Meta_API::GetInstance()->get_meta_value( get_the_ID(), 'result', 'away-team-score' ); ?></div>
 						</div>
-					<?php endwhile; ?>
-				</div>
+						<div class="row">
+							<?php
+							$connected_args = array(
+								'connected_type' => 'match_to_team' ,
+								'connected_items' => get_queried_object() ,
+								'connected_meta' => array('sides' => 'home'),
+								'nopaging' => true
+								);
+							wp_reset_query();
+							$connected_home = new WP_Query( $connected_args );
+							while($connected_home -> have_posts()) : $connected_home->the_post();?>
+									<div class="col-md-6" id="team-score ?>">
+										<p>
+										<?php echo p2p_get_meta( get_post()->p2p_id, 'sides', true ) . ' Team' ?> : <?php the_title();?>
+										</p>
+									</div>
+							<?php endwhile;
+							$connected_args = array(
+								'connected_type' => 'match_to_team' ,
+								'connected_items' => get_queried_object() ,
+								'connected_meta' => array('sides' => 'away'),
+								'nopaging' => true
+								);
+							wp_reset_query();
+							$connected_away = new WP_Query( $connected_args );
+							while($connected_away -> have_posts()) : $connected_away->the_post();?>
+									<div class="col-md-6" id="team-score ?>">
+										<p>
+										<?php echo p2p_get_meta( get_post()->p2p_id, 'sides', true ) . ' Team' ?> : <?php the_title();?>
+										</p>
+									</div>
+							<?php endwhile;
+							wp_reset_query();?>
+						</div>
+					<?php endwhile;
+				else : ?><p> 'nothing here' </p><?php
+				endif;
+				wp_reset_postdata();?>
 				</div>
 			</main><!-- .site-main -->
 		</div><!-- .content-area --><?php
