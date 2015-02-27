@@ -77,15 +77,53 @@ class Match_Post_Type{
 		return $template;
 	}
 
-	public static function display_home_score(){
-		$home_team_score = Voce_Meta_API::GetInstance()->get_meta_value( get_the_id(), 'result', 'home-team-score' );
-		return $home_team_score;
+	public static function display_score( $id ){
+		echo ''	?><h2>score:</h2>
+			<div class="row">
+				<div id="team-home" class="col-md-6"><?php echo 'Home Score: ' . Voce_Meta_API::GetInstance()->get_meta_value( $id, 'result', 'home-team-score' ); ?></div>
+				<div id="team-away" class="col-md-6"><?php echo 'Away Score: ' . Voce_Meta_API::GetInstance()->get_meta_value( $id, 'result', 'away-team-score' ); ?></div>
+			</div><?php
 	}
 
-	public static function display_away_score(){
-		$away_team_score = Voce_Meta_API::GetInstance()->get_meta_value( get_the_id(), 'result', 'away-team-score' );
-		return $away_team_score;
+
+	public static function display_the_match(){
+		$args = array( 'post_type' => 'match', 'posts_per_page' => 1, 'meta_query' => 'home_team_score' );
+		$match_posts = new WP_Query( $args );
+		$connected_args = array(
+			'connected_type' => 'match_to_team' ,
+			'connected_items' => get_queried_object() ,
+			'connected_meta' => array('key' => 'sides'),
+			'nopaging' => true
+			);
+		$connected = new WP_Query( $connected_args );
+		echo '' ?>
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
+				<div class="container-fluid page-content">
+				<?php while( $match_posts -> have_posts()) : $match_posts->the_post() ?>
+					<?php $id = post_id(); ?>
+					<h1>this is the title: <?php the_title(); ?></h1>
+					<h2>score:</h2>
+					<div class="row">
+						<div id="team-home" class="col-md-6"><?php echo 'Home Score: ' . Voce_Meta_API::GetInstance()->get_meta_value( $id, 'result', 'home-team-score' ); ?></div>
+						<div id="team-away" class="col-md-6"><?php echo 'Away Score: ' . Voce_Meta_API::GetInstance()->get_meta_value( $id, 'result', 'away-team-score' ); ?></div>
+					</div>
+					<?php endwhile; ?>
+					<div class="row">
+					<?php
+					while($connected -> have_posts()) : $connected->the_post();?>
+						<div class="col-md-6" id="team-<?php echo p2p_get_meta( get_post()->p2p_id, 'sides', true ); ?>">
+							<?php
+							the_title();
+							echo p2p_get_meta( get_post()->p2p_id, 'sides', true ) . ' Team' ?> : <?php the_title();?>
+						</div>
+					<?php endwhile; ?>
+				</div>
+				</div>
+			</main><!-- .site-main -->
+		</div><!-- .content-area --><?php
 	}
+
 }
 
 add_action( 'init', array( 'Match_Post_Type' , 'init') ) ;
